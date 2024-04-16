@@ -23,7 +23,24 @@ sort([]); // []
 
 function sort(nums, sorted = []) {
     // Your code here 
+    if (nums.length === 0) return sorted;
+    let min = 0;
+    nums.forEach((ele, i) => {
+        if (ele < nums[min]){
+            min = i;
+        }
+    })
+    console.log(min);
+    sorted.push(nums[min]);
+    console.log(sorted);
+    nums.splice(min, 1);
+    console.log(nums);
+
+    return sort(nums, sorted);
 }
+
+debugger
+console.log(sort([4,1,6,3,1,7]));
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = sort;
