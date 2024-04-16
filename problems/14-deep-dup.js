@@ -35,10 +35,21 @@ console.log(x[0] === y[0]) // true
 
 
 function deepDup(arr) {
-  // Your code here 
+  // Your code here
+  let duplicated = [];
+  //push each element of original array into new array
+  arr.forEach(ele => {
+    if(Array.isArray(ele)) {
+      duplicated.push(deepDup(ele))
+    } else {
+      duplicated.push(ele)
+    }
+  }) 
+  return duplicated;
 }
 
-
+let arr = [[1], [2, [3]]];
+console.log(duped = deepDup(arr)); // [[1], [2, [3]]]
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = deepDup;
